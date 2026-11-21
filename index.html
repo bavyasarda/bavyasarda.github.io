@@ -331,7 +331,7 @@
     .pub-links { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.6rem; }
 
     /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.8rem; }
     .project-card {
       padding: 2.1rem; position: relative; overflow: hidden;
       display: flex; flex-direction: column;
@@ -348,6 +348,15 @@
     .project-desc { font-size: 0.89rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.1rem; }
     .project-card .bullets { margin-bottom: 1.4rem; }
     .project-card .tech-stack { margin-top: auto; padding-top: 0.3rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 0.03em;
+      color: var(--burgundy); text-decoration: none;
+      border: 1.5px solid var(--rose-mid); border-radius: 100px;
+      padding: 0.42rem 1rem; transition: all 0.25s;
+    }
+    .project-link:hover { background: var(--burgundy); color: #fff; border-color: var(--burgundy); }
 
     /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; }
@@ -473,7 +482,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
       .nav-links { display: none; }
-      .exp-grid, .pub-grid, .contact-inner, .achievements-grid { grid-template-columns: 1fr; }
+      .exp-grid, .pub-grid, .contact-inner, .achievements-grid, .projects-grid { grid-template-columns: 1fr; }
       .pub-paper, .photo-card { position: static; }
       .pub-paper { max-width: 340px; margin: 0 auto; }
       .photo-card { max-width: 460px; }
@@ -507,7 +516,7 @@
     <a href="#hero" class="nav-logo">Bavya Sarda</a>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#publication">Publication</a></li>
+      <li><a href="#publication">Research</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#about">About</a></li>
@@ -523,7 +532,7 @@
         <div class="hero-content">
           <div class="hero-tag"><span></span> AI &amp; Automation Intern @ Evalueserve</div>
           <h1 class="hero-name">Bavya<br><em>Sarda</em></h1>
-          <p class="hero-role">AI / ML Engineer · Published at LREC 2026</p>
+          <p class="hero-role">AI / ML Engineer · AAAI-27 &amp; LREC 2026 Author</p>
           <p class="hero-desc">
             Pre-final year Computer Science student at Galgotias University, building AI-driven
             document intelligence and automation for enterprise data workflows — and researching
@@ -539,8 +548,8 @@
               <span class="stat-label">LeetCode Solved</span>
             </div>
             <div class="stat">
-              <span class="stat-num">4.76<small style="font-size:1rem">/5</small></span>
-              <span class="stat-label">FinCausal 2026 Score</span>
+              <span class="stat-num">2</span>
+              <span class="stat-label">Accepted Papers</span>
             </div>
           </div>
           <div class="hero-cta">
@@ -660,12 +669,63 @@
   <section id="publication" class="pad">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// publication</span>
+        <span class="section-tag">// research</span>
         <h2 class="section-title">Published <em>research</em></h2>
         <div class="section-line"></div>
       </div>
 
       <div class="pub-grid">
+        <figure class="pub-paper card reveal">
+          <img src="finhingguard-paper.jpg" alt="First page of the FinHingGuard student abstract accepted at AAAI-27" loading="lazy" />
+          <figcaption class="pub-paper-cta">📄 AAAI-27 Student Abstract</figcaption>
+        </figure>
+
+        <div class="pub-body card reveal">
+          <div class="pub-meta">
+            <span class="pill solid">Accepted · AAAI-27</span>
+            <span class="pill">Student Abstract &amp; Poster Program</span>
+            <span class="pill">🗓 Feb 19, 2027 · In person</span>
+          </div>
+
+          <h3 class="pub-title">FinHingGuard: Red-Teaming the Financial Safety of LLMs in Code-Mixed Hinglish</h3>
+          <p class="pub-authors"><strong>Bavya Sarda</strong>, Pulkit Chatwal</p>
+          <p class="pub-venue">
+            Accepted to the AAAI-27 Student Abstract and Poster Program · Galgotias University &amp; Rajiv Gandhi Institute of Petroleum Technology
+          </p>
+
+          <ul class="bullets">
+            <li>Built <strong>FinHingGuard</strong>, a red-teaming benchmark of <strong>700 paired English–Hinglish</strong> harmful financial prompts spanning seven India-specific harm categories (UPI fraud, KYC fraud, market manipulation and more) and four attack styles.</li>
+            <li>Evaluated <strong>seven open-weight LLMs</strong> under zero-shot and few-shot prompting, measuring Attack Success Rate and the cross-lingual safety gap between paired prompts.</li>
+            <li>Found that Hinglish ASR exceeds English for six of seven models — <strong>Llama-3.1-8B jumps from 26.0% to 97.7%</strong> — with all but one model complying with over 94% of Hinglish requests.</li>
+            <li>Showed that indirect framings (hypothetical and awareness) reach <strong>86% zero-shot ASR</strong> vs 75% for direct attacks, evidence that English-only evaluation overestimates financial safety for Indian users.</li>
+          </ul>
+
+          <div class="metrics" style="margin-top:1.8rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+            <div class="metric">
+              <span class="metric-num">700</span>
+              <span class="metric-lbl">Paired Prompts</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">7</span>
+              <span class="metric-lbl">LLMs Red-Teamed</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">+71.7<small>pts</small></span>
+              <span class="metric-lbl">Largest Safety Gap</span>
+            </div>
+            <div class="metric">
+              <span class="metric-num">86<small>%</small></span>
+              <span class="metric-lbl">Indirect-Attack ASR</span>
+            </div>
+          </div>
+
+          <div class="pub-links">
+            <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener" class="btn-outline">About AAAI-27 ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-grid" style="margin-top:2.2rem;">
         <a class="pub-paper card reveal" href="https://aclanthology.org/2026.fnp-1.pdf#page=187" target="_blank" rel="noopener" title="Read the paper on ACL Anthology">
           <img src="qraft-paper.jpg" alt="First page of the QRAFT paper published in the ACL Anthology" loading="lazy" />
           <span class="pub-paper-cta">📄 Read on ACL Anthology ↗</span>
@@ -730,6 +790,31 @@
       </div>
 
       <div class="projects-grid">
+
+        <div class="project-card card reveal">
+          <div class="project-year">2026 · Bharat Agentic 2026 hackathon</div>
+          <div class="project-title">Jaanch · जाँच</div>
+          <div class="project-sub">Agentic AI · Legal Metrology Compliance</div>
+          <p class="project-desc">An agentic web app that checks whether a packaged product's label follows India's Legal Metrology (Packaged Commodities) Rules, 2011 — and explains the verdict in the user's own Indian language, by text and voice.</p>
+          <ul class="bullets">
+            <li>LLM planner with tool calling reads the pack with a vision model, scrapes the e-commerce listing and streams every step to an <strong>Agent steps</strong> timeline.</li>
+            <li>Compliance is decided by a <strong>deterministic rule engine</strong> over a data-driven rule set — the LLM extracts, explains and drafts, but never rules on compliance.</li>
+            <li>Role-aware output: a consumer-helpline grievance, an MSME fix-list, or a printable inspector report, in six Indian languages.</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Next.js</span>
+            <span class="tech">TypeScript</span>
+            <span class="tech">Groq</span>
+            <span class="tech">GPT-OSS-120B</span>
+            <span class="tech">Qwen Vision</span>
+            <span class="tech">Tool Calling</span>
+            <span class="tech">PWA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://jaanch-delta.vercel.app" target="_blank" rel="noopener" class="project-link">Live Demo ↗</a>
+            <a href="https://github.com/bavyasarda/JAANCH" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+          </div>
+        </div>
 
         <div class="project-card card reveal">
           <div class="project-year">2026</div>
@@ -894,7 +979,7 @@
           <h3>Bridging research and real-world engineering</h3>
           <p>I'm Bavya Sarda, a pre-final year Computer Science student at Galgotias University with hands-on experience in AI-driven applications, machine learning and the automation of enterprise data workflows.</p>
           <p>At Evalueserve I work on document intelligence and automation — OCR-backed extractors, Azure AI pipelines and Power BI reporting that replace manual processes end to end. Outside of work, I fine-tune language models, build RAG systems and design real-time voice agents.</p>
-          <p>My research on causal span extraction in financial documents was published at <strong>LREC 2026</strong> (7th Financial Narrative Processing Workshop) in Palma de Mallorca, Spain.</p>
+          <p>My research sits at the intersection of LLMs and financial safety: causal span extraction published at <strong>LREC 2026</strong> (7th Financial Narrative Processing Workshop, Palma de Mallorca), and <strong>FinHingGuard</strong> — red-teaming LLM financial safety in code-mixed Hinglish — accepted to the <strong>AAAI-27 Student Abstract and Poster Program</strong>.</p>
           <div style="margin-top:1.6rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
             <a href="mailto:bhavyasarda19@gmail.com" class="btn-primary">📩 Email Me</a>
             <a href="Bavya_Sarda_Resume.pdf" target="_blank" rel="noopener" class="btn-outline">Download Résumé ↗</a>
@@ -953,6 +1038,13 @@
       </div>
       <div class="achievements-grid">
         <div class="ach-card card reveal">
+          <div class="ach-icon">🎤</div>
+          <div class="ach-info">
+            <h4>Accepted — AAAI-27 Student Abstract</h4>
+            <p><strong>FinHingGuard</strong> accepted to the <strong>AAAI 2027 Student Abstract and Poster Program</strong>, to be presented in person on February 19, 2027.</p>
+          </div>
+        </div>
+        <div class="ach-card card reveal">
           <div class="ach-icon">📄</div>
           <div class="ach-info">
             <h4>Published Author — LREC 2026</h4>
@@ -973,7 +1065,7 @@
             <p>Solved <strong>400+ algorithmic problems</strong>, consistently ranking in the global top 30% — strong DSA and problem-solving foundations.</p>
           </div>
         </div>
-        <div class="ach-card card reveal">
+        <div class="ach-card card reveal" style="grid-column: 1 / -1;">
           <div class="ach-icon">🇮🇳</div>
           <div class="ach-info">
             <h4>Smart India Hackathon &amp; RoboWeek 3.0</h4>
